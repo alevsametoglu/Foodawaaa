@@ -1,11 +1,11 @@
-import { Button } from "antd";
 import "./App.scss";
 import "antd/dist/antd.css";
+import Routing from "./routing/Routing";
 
 function App() {
   return (
     <div className="App">
-      <Button type="primary">Primary Button</Button>
+      <Routing />
     </div>
   );
 }
