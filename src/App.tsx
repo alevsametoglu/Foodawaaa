@@ -1,5 +1,4 @@
 import "./App.scss";
-import "antd/dist/antd.css";
 import Routing from "./routing/Routing";
 
 function App() {
