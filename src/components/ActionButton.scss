@@ -1,0 +1,15 @@
+@import "../style/variable.scss";
+
+.action-button {
+  cursor: pointer;
+  background-color: $primary-color;
+  color: white;
+  padding: 14px 30px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  border: 1px solid $primary-color;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
