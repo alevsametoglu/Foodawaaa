@@ -1,0 +1,18 @@
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 0px 40px 40px 40px;
+
+  .welcome {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 54px;
+  }
+  @media screen and (max-width: 560px) {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
