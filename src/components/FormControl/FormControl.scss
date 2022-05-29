@@ -1,0 +1,36 @@
+.form-control {
+  display: flex;
+  flex-direction: column;
+  .label {
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  input,
+  textarea {
+    font-size: 16px;
+    border: 1.5px solid #d6d8e7;
+    color: #14142b;
+    resize: none;
+    border-radius: 10px;
+    padding: 14px 20px;
+
+    &::placeholder {
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+      color: #a0a3bd;
+      resize: none;
+      border-radius: 10px;
+    }
+
+    &.invalid {
+      border: 1.5px solid #dd6161;
+    }
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    display: none;
+  }
+}
