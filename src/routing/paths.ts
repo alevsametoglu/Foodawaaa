@@ -1,16 +1,14 @@
-import { HomePage, ProductCreatePage, ProductDetailPage, ProductUpdatePage } from "../pages";
-
 export const ROUTER_PATHS = {
   HomePage: {
     getUrl: () => `/`,
   },
   ProductCreatePage: {
-    getUrl: () => `/products/create`,
+    getUrl: () => `/product/create`,
   },
   ProductDetailPage: {
-    getUrl: (productId: string) => `/products/${productId}`,
+    getUrl: (productId: string) => `/product/${productId}`,
   },
   ProductUpdatePage: {
-    getUrl: (productId: string) => `/products/${productId}/edit`,
+    getUrl: (productId: string) => `/product/${productId}/edit`,
   },
 };
