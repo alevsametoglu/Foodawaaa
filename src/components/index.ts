@@ -1,7 +1,7 @@
 import ActionButton from "./ActionButton";
 import { AddButton, EditButton, HeaderAddButton, UpdateButton } from "./Buttons";
 import FormControl from "./FormControl/FormControl";
-import ProductForm from "./ProductForm";
+import ProductForm, { ProductFormType } from "./ProductForm";
 import ProductItem from "./ProductItem";
 import ProductList from "./ProductList";
 import SearchInput from "./SearchInput";
@@ -20,3 +20,5 @@ export {
   ProductForm,
   FormControl,
 };
+
+export type { ProductFormType };

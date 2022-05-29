@@ -1,5 +1,16 @@
+import { ProductForm, ProductFormType } from "../components";
+
 const ProductCreatePage = () => {
-  return <div>ProductCreatePage</div>;
+  const createProduct = (data: ProductFormType) => {
+    console.log("create product", data);
+    //TODO: create product on server
+  };
+
+  return (
+    <div>
+      <ProductForm onSubmit={createProduct} />
+    </div>
+  );
 };
 
 export default ProductCreatePage;

@@ -1,0 +1,32 @@
+@import "../style/variable.scss";
+
+.product-form {
+  padding: 40px;
+  width: 800px;
+  border: 2px solid #d6d8e7;
+  background-color: #ffffff99;
+  .header {
+    display: flex;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 20px;
+
+    .icon {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background-color: $primary-color;
+    }
+    .title {
+      font-size: 18px;
+      font-weight: 700;
+    }
+  }
+
+  .footer {
+    margin-top: 20px;
+  }
+}
