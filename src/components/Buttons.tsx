@@ -1,10 +1,11 @@
-import React from "react";
 import { Add, Edit } from "../icon";
 import ActionButton from "./ActionButton";
 
-const UpdateButton = () => <ActionButton text="Update" horizontalPadding={40} />;
-const EditButton = () => <ActionButton text="Modifier" icon={<Edit />} horizontalPadding={32} />;
-const AddButton = () => <ActionButton text="Add a new product" horizontalPadding={40} />;
-const HeaderAddButton = () => <ActionButton text="Ajouter un produit" icon={<Add />} horizontalPadding={13.5} />;
+type Props = { type?: "button" | "submit"; onClick?: () => void; onSubmit?: () => void; to?: string };
+
+const UpdateButton = (props: Props) => <ActionButton text="Update" horizontalPadding={40} {...props} />;
+const EditButton = (props: Props) => <ActionButton text="Modifier" icon={<Edit />} horizontalPadding={32} {...props} />;
+const AddButton = (props: Props) => <ActionButton text="Add a new product" horizontalPadding={40} {...props} />;
+const HeaderAddButton = (props: Props) => <ActionButton text="Ajouter un produit" icon={<Add />} horizontalPadding={13.5} {...props} />;
 
 export { UpdateButton, EditButton, AddButton, HeaderAddButton };
