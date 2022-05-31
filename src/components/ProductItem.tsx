@@ -10,7 +10,7 @@ const ProductItem = ({ product }: Props) => {
       <img className="img" src={product.image} alt="" />
       <div className="infos">
         <span className="name">{product.name}</span>
-        <span className="price">{product.price} &euro;</span>
+        <span className="price">{product.price.toFixed(2).replace(".", ",")} &euro;</span>
       </div>
       <div className="description">{product.description}</div>
     </Link>
