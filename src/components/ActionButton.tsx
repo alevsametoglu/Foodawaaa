@@ -1,11 +1,22 @@
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { Spinner } from "../icon";
 import "./ActionButton.scss";
 
-type Props = { type?: "button" | "submit"; text: string; icon?: ReactNode; horizontalPadding?: number; onClick?: () => void; to?: string };
+type Props = {
+  type?: "button" | "submit";
+  loading?: boolean;
+  text: string;
+  icon?: ReactNode;
+  horizontalPadding?: number;
+  onClick?: () => void;
+  to?: string;
+};
 
 const ActionButton = (props: Props) => {
-  const button = (
+  const button = props.loading ? (
+    <Spinner className="button-spinner" />
+  ) : (
     <button
       type={props.type}
       className="action-button"
