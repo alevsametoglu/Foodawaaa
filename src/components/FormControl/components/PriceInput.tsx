@@ -24,7 +24,7 @@ const PriceInput = (props: Props) => {
       placeholder={props.placeholder}
       onFocus={() => setFocused(true)}
       onBlur={handleOnBlur}
-      value={focused ? value : (value || 0)?.toFixed(2)?.replace(".", ",") + ` €`}
+      value={focused ? value : value !== "" ? value.toFixed(2)?.replace(".", ",") + ` €` : ""}
       onChange={handleOnChange}
       name={props.fieldRenderProps.name}
       ref={props.fieldRenderProps.ref}
