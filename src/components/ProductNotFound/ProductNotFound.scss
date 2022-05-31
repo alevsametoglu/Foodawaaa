@@ -1,0 +1,27 @@
+.error-container {
+  border: 2px solid hsla(233, 25%, 87%, 1);
+  background: white;
+  border-radius: 12px;
+  width: 800px;
+  height: 580px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  img {
+    object-fit: cover;
+  }
+  .error-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    div {
+      color: #919191;
+      font-size: 46px;
+    }
+    a {
+      cursor: pointer;
+    }
+  }
+}
