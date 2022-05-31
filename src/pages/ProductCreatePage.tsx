@@ -1,15 +1,22 @@
-import { ProductForm, ProductFormType } from "../components";
+import { useNavigate } from "react-router";
+import { API } from "../api";
+import { Center, ProductForm, ProductFormType } from "../components";
+import { ROUTER_PATHS } from "../routing/paths";
 
 const ProductCreatePage = () => {
+  const navigate = useNavigate();
   const createProduct = (data: ProductFormType) => {
-    console.log("create product", data);
-    //TODO: create product on server
+    API.createProduct(data)
+      .then((res) => {
+        navigate(ROUTER_PATHS.ProductDetailPage.getUrl(res._id));
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
-    <div>
-      <ProductForm onSubmit={createProduct} />
-    </div>
+    <Center>
+      <ProductForm onSubmit={createProduct} />;
+    </Center>
   );
 };
 
