@@ -20,7 +20,7 @@ const ProductForm = ({ product, onSubmit }: Props) => {
       image: product?.image,
       name: product?.name,
       price: product?.price,
-      tags: product?.tags,
+      tags: product?.tags || [],
     },
   });
 
