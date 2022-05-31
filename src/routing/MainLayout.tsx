@@ -1,13 +1,16 @@
 import { ReactComponent as Logo } from "./Logo.svg";
 import { Outlet } from "react-router";
-import { HeaderAddButton } from "../components";
+import { HeaderAddButton, LoaderSpinner } from "../components";
 import { Home } from "../icon";
 import { Link } from "react-router-dom";
 import { ROUTER_PATHS } from "./paths";
+import { useSelector } from "react-redux";
+import { RootState } from "../Redux/store";
 
 const MainLayout = () => {
+  const { loading } = useSelector((state: RootState) => state.app);
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", position: "relative" }}>
       <header
         style={{
           background: "white",
@@ -26,9 +29,10 @@ const MainLayout = () => {
           <HeaderAddButton to={ROUTER_PATHS.ProductCreatePage.getUrl()} />
         </div>
       </header>
-      <main style={{ maxWidth: 1440, marginTop: 40 }}>
+      <main style={{ maxWidth: 1200, marginTop: 40, width: "100%" }}>
         <Outlet />
       </main>
+      <LoaderSpinner show={loading} />
     </div>
   );
 };
