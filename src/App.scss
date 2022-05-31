@@ -1,1 +1,6 @@
 @import "./style/main.scss";
+
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
