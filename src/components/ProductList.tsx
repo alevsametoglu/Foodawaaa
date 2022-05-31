@@ -1,36 +1,50 @@
 import "./ProductList.scss";
-import { ProductItem } from ".";
+import { ActionButton, ProductItem, ProductNotFound } from ".";
+import { useEffect, useState } from "react";
+import { API } from "../api";
+import { Product } from "../models";
 
-const product = {
-  _id: "6247013f8f219f0021553816",
-  tags: [],
-  name: "X-Hot Burger !",
-  description:
-    "Restaurant très intimiste et agréable ! Restaurant parfait pour les amateurs de poulet, malgré tout un grand choix de plat, avec des produits de qualité ! Personnel très amical et agréable, je recommande vivement cet endroit.",
-  image: "https://media-cdn.tripadvisor.com/media/photo-s/14/56/13/8a/big-mike-burger-loaded.jpg",
-  price: 17.43,
-  createdAt: "2022-04-01T13:42:23.457Z",
-  updatedAt: "2022-05-24T18:40:56.129Z",
-  __v: 0,
+type Props = {
+  searchKey?: string;
+  relatedTags?: string[];
 };
+const ProductList = ({ relatedTags, searchKey }: Props) => {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [hasMore, setHasMore] = useState(true);
 
-const ProductList = () => {
+  const loadList = (currentList = products) => {
+    setLoading(true);
+    API.getProducts({ start: currentList.length, count: 20, search: searchKey, tags: relatedTags })
+      .then((res) => {
+        setProducts([...currentList, ...res]);
+        setHasMore(res.length === 20);
+      })
+      .finally(() => setLoading(false));
+  };
+
+  useEffect(() => {
+    loadList([]);
+  }, [searchKey, relatedTags]);
+
   return (
-    <div className="product-list">
-      <ProductItem product={product} />
-      <ProductItem product={product} />
-      <ProductItem product={product} />
-      <ProductItem product={product} />
-      <ProductItem product={product} />
-      <ProductItem product={product} />
-      <ProductItem product={product} />
-      <ProductItem product={product} />
-      <ProductItem product={product} />
-      <ProductItem product={product} />
-      <ProductItem product={product} />
-      <ProductItem product={product} />
-      <ProductItem product={product} />
-      <ProductItem product={product} />
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+      {!loading && products.length === 0 ? (
+        <ProductNotFound />
+      ) : (
+        <>
+          <div className="product-list">
+            {products.map((product, i) => (
+              <ProductItem key={i} product={product} />
+            ))}
+          </div>
+          {hasMore && (
+            <div style={{ textAlign: "center", marginBottom: 100 }}>
+              <ActionButton text="load more" horizontalPadding={40} loading={loading} onClick={() => loadList()} />
+            </div>
+          )}
+        </>
+      )}
     </div>
   );
 };
